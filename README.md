@@ -1,5 +1,11 @@
 This project was an exploratory effort to play with React Hooks and determine their viability as a reducer solution.
 
+Dependencies:
+Node 10.16
+npm 6.10.1
+React 16.8
+
+
 To install this project locally:
 
 1. Clone the repo into a folder.
