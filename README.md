@@ -12,3 +12,5 @@ To install this project locally:
 2. cd into the folder.
 3. Run "npm install; npm start"
 4. Navigate in your browser to http://localhost:3000 to see the app in action.
+
+Please note that only deleting items has been implemented to test the reducer. Other actions (adding, modifying) do not work.
