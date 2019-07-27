@@ -1,36 +1,27 @@
-import React from 'react'
-import {
-  useReducer,
-} from 'react'
-import reducer from './reducer'
-import BooksTable from './BooksTable'
+import React from 'react';
 
-export const LibraryContext = React.createContext(null);
+import AddBookForm from './AddBookForm';
+import BooksTable from './BooksTable';
+import Store from './Store';
 
 const App = () => {
-  const initialState = [
-    {title: 'The Hobbit', author: 'J.R.R. Tolkien', isbn: '1'},
-    {title: 'The Bible', author: 'Various', isbn: '2'}
-  ]
-
-  const [state, dispatch] = useReducer(reducer, initialState); // eslint-disable-line
-
   return (
-    <div className="container">
-      <h1>CRUD Library App with Hooks</h1>
-      <div className="flex-row">
-        <div className="flex-large">
-          <h2>Add Book</h2>
-        </div>
-        <div className="flex-large">
-          <h2>View Books</h2>
-          <LibraryContext.Provider value={{dispatch, state}}>
-            <BooksTable />
-          </LibraryContext.Provider>
+    <Store>
+      <div className="container">
+        <h1>CRUD Library App with Hooks</h1>
+        <div className="flex-row">
+          <div className="flex-large">
+            <h2>Add Book</h2>
+              <AddBookForm />
+          </div>
+          <div className="flex-large">
+            <h2>View Books</h2>
+              <BooksTable />
+          </div>
         </div>
       </div>
-    </div>
+    </Store>
   )
 }
 
-export default App
+export default App;

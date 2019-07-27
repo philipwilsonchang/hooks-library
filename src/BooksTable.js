@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
-import { LibraryContext } from './App'
+import React, { useContext } from 'react';
+import { StoreContext } from './Store';
 
 const BooksTable = () => {
-  const {state, dispatch} = useContext(LibraryContext);
+  const {state, dispatch} = useContext(StoreContext);
+  console.log("BooksTable State:", state);
 
   return (
     <table>
@@ -10,6 +11,7 @@ const BooksTable = () => {
         <tr>
           <th>Title</th>
           <th>Author</th>
+          <th>ISBN</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -18,8 +20,8 @@ const BooksTable = () => {
           <tr>
             <td>{book.title}</td>
             <td>{book.author}</td>
+            <td>{book.isbn}</td>
             <td>
-              <button className="button muted-button">Edit</button>
               <button className="button muted-button" onClick={() => dispatch({action: 'DELETE', payload: book.isbn})}>Delete</button>
             </td>
           </tr>
@@ -29,4 +31,4 @@ const BooksTable = () => {
   );
 };
 
-export default BooksTable
+export default BooksTable;

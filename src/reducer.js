@@ -2,7 +2,7 @@ function reducer(state, action) {
   console.log(action);
   switch (action.action) {
     case 'ADD':
-      return state.push(action.payload);
+      return [...state, action.payload];
     case 'DELETE':
       return state.filter(book => {
         if (book.isbn !== action.payload) {
@@ -10,17 +10,9 @@ function reducer(state, action) {
         }
         return false
       });
-    case 'EDIT':
-      return state.map(book => {
-        if (book.isbn === action.payload.isbn) {
-          book.title = action.payload.title;
-          book.author = action.payload.author;
-        }
-        return book;
-      });
     default:
-      console.log("ERROR ACTION:", action)
-      throw new Error();
+      console.log("ERROR ON ACTION:", action)
+      return state;      
   }
 }
 
